@@ -1,0 +1,49 @@
+
+@if (countryData()) {
+  <section class="mx-10">
+    <h1 class="text-3xl">{{ countryData()!.name }}</h1>
+    <h2 class="text-xl font-thin">
+      Población {{ countryData()!.population | number }}
+    </h2>
+  </section>
+
+  <section class="stats shadow mx-5">
+    <div class="stat place-items-center">
+      <div class="stat-title">Población</div>
+      <div class="stat-value">{{ countryData()!.population | number }}</div>
+      <div class="stat-desc">Desde {{ currentYear() }}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Nombre</div>
+      <div class="stat-value">{{ countryData()!.name }}</div>
+      <div class="stat-desc">{{ countryData()!.region }}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Sub Region</div>
+      <div class="stat-value">{{ countryData()!.subRegion }}</div>
+      <div class="stat-desc">{{ countryData()!.region }}</div>
+    </div>
+
+    <div class="stat place-items-center">
+      <div class="stat-title">Bandera</div>
+      <div class="stat-value">{{ countryData()!.flag }}</div>
+      <div class="stat-desc">{{ countryData()!.subRegion }}</div>
+    </div>
+  </section>
+
+  <section class="diff aspect-video">
+    <div class="diff-item-1">
+      <img [alt]="countryData()!.name" [src]="countryData()!.flagPng" />
+    </div>
+    <div class="diff-item-2">
+      <img
+        class="blur brightness-75"
+        [alt]="countryData()!.name"
+        [src]="countryData()!.flagPng"
+      />
+    </div>
+    <div class="diff-resizer"></div>
+  </section>  
+}

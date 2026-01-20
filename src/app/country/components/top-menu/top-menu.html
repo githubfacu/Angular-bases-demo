@@ -1,0 +1,23 @@
+
+<nav class="p-4 w-full" aria-label="navegación principal">
+    <ul class="menu bg-base-200 sm:menu-horizontal rounded-box">
+    <li>
+        <a routerLink="by-capital" routerLinkActive="btn-primary" class="btn">
+            <lucide-angular [img]="Pin" size="20" aria-hidden="true" />
+            Por capital
+        </a>
+    </li>
+    <li>
+        <a routerLink="by-country" routerLinkActive="btn-primary" class="btn">
+            <lucide-angular [img]="Globe" size="20" />
+            Por país
+        </a>
+    </li>
+    <li>
+        <a routerLink="by-region" routerLinkActive="btn-primary" class="btn">
+            <lucide-angular [img]="Earth" size="20" />
+            Por región
+        </a>
+    </li>
+    </ul>    
+</nav>

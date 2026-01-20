@@ -1,0 +1,78 @@
+<div class="overflow-x-auto my-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Ico</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Población</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+       @for (country of countries(); track country.cca2; let index = $index) {
+        <tr>
+            <td>{{ index + 1 }}</td>
+            <td>{{ country.flag }}</td>
+            <td>
+                <div class="flex items-center gap-3">
+                    <div class="avatar">
+                        <div class="rounded-lg h-10 w-12">
+                            <img
+                            [src]="country.flagPng"
+                            [alt]="country.flagAlt" />
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                {{ country.name }}
+            <br />
+            <span class="badge badge-ghost badge-sm">{{ country.officialName }}</span>
+            </td>
+            <td>{{ country.capital }}</td>
+            <td>
+                <span class="badge badge-secondary">{{ country.population | number }}</span>
+            </td>
+            <th>
+                <a [routerLink]="['/country/by', country.cca2]" class="btn btn-ghost btn-xs">Más información</a>
+            </th>
+        </tr>
+       }
+
+       @if (errorMessage()) {
+            <tr>
+                <td class="text-center">
+                    {{ errorMessage() }}
+                </td>
+            </tr>
+       }
+
+        @if (countries().length === 0 && !isLoading) {
+            <tr>
+                <td class="text-center">
+                    No se encontraron resultados de búsqueda
+                </td>
+            </tr>
+       }
+
+        @if (isLoading()) {
+            <tr>
+                <td class="text-center">
+                    Buscando paises
+                </td>
+            </tr>
+       }
+
+       @if (notFoundMessage()) {
+        <tr>
+            <td class="text-center">
+            {{ notFoundMessage() }}
+            </td>
+        </tr>
+        }
+    </tbody>
+  </table>
+</div>

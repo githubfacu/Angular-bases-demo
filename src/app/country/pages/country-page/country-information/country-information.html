@@ -33,17 +33,11 @@
     </div>
   </section>
 
-  <section class="diff aspect-video">
-    <div class="diff-item-1">
-      <img [alt]="countryData()!.name" [src]="countryData()!.flagPng" />
-    </div>
-    <div class="diff-item-2">
-      <img
-        class="blur brightness-75"
-        [alt]="countryData()!.name"
-        [src]="countryData()!.flagPng"
-      />
-    </div>
-    <div class="diff-resizer"></div>
+  <section class="mx-10">
+    <img 
+      [alt]="countryData()!.name" 
+      [src]="countryData()!.flagPng" 
+      class="w-full max-w-2xl"
+    />
   </section>  
 }

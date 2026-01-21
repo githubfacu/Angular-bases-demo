@@ -1,1 +1,20 @@
-<country-list [countries]="[]"/>
+
+<section class="row mt-2">
+  <div class="flex-col">
+    @for (region of regions; track region) {
+    <button
+      class="btn mr-2 btn-outline w-25"
+      (click)="selectedRegion.set(region)"
+      [class.btn-primary]="selectedRegion() === region"
+    >
+      {{ region }}
+    </button>
+    }
+  </div>
+</section>
+
+<country-list 
+    [countries]="countryResource.value() ?? []"
+    [errorMessage]="countryResource.error()"
+    [isLoading]="countryResource.isLoading()"
+/>  

@@ -7,6 +7,7 @@ import { RouterLink } from "@angular/router";
   selector: 'country-list',
   imports: [DecimalPipe, RouterLink],
   templateUrl: './country-list.html',
+  styleUrls: ['./country-list.css'],
 })
 export class CountryList {
   

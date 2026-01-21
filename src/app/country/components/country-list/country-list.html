@@ -3,11 +3,11 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Ico</th>
+        <th class="hidden md:table-cell">Ico</th>
         <th>Bandera</th>
         <th>Nombre</th>
         <th>Capital</th>
-        <th>Población</th>
+        <th class="hidden md:table-cell">Población</th>
         <th></th>
       </tr>
     </thead>
@@ -15,7 +15,7 @@
        @for (country of countries(); track country.cca2; let index = $index) {
         <tr>
             <td>{{ index + 1 }}</td>
-            <td>{{ country.flag }}</td>
+            <td class="hidden md:table-cell">{{ country.flag }}</td>
             <td>
                 <div class="flex items-center gap-3">
                     <div class="avatar">
@@ -28,12 +28,14 @@
                 </div>
             </td>
             <td>
+                <div class="flex flex-col gap-1">
                 {{ country.name }}
-            <br />
-            <span class="badge badge-ghost badge-sm">{{ country.officialName }}</span>
+                <br />
+                <span class="badge badge-ghost badge-sm h-auto text-center rounded-lg px-1">{{ country.officialName }}</span>
+                </div>
             </td>
-            <td>{{ country.capital }}</td>
-            <td>
+            <td class="break-all md:break-normal">{{ country.capital }}</td>
+            <td class="hidden md:table-cell">
                 <span class="badge badge-secondary">{{ country.population | number }}</span>
             </td>
             <th>

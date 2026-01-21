@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, linkedSignal, output } from '@angular/core';
 
 @Component({
   selector: 'country-search-input',
@@ -8,9 +8,12 @@ import { Component, input, output } from '@angular/core';
 export class CountrySearchInput {
 
   placeholder = input('Buscar')
-  value = output<string>();
+  initialValue = input<string>('')
+  value = output<string>()
+
+  inputValue = linkedSignal<string>(() => this.initialValue() ?? '')
 
   search(value: string) {
-    this.value.emit(value);
+    this.value.emit(value)
   }
 }
